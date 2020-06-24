@@ -1,0 +1,22 @@
+Plugin\Sample\Entity\CustomerRank:
+    type: entity
+    table: sample_customer_rank
+    repositoryClass: Plugin\Sample\Repository\CustomerRankRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: category_id
+            generator:
+                strategy: NONE
+    fields:
+        customer_rank:
+            type: string
+            nullable: true
+        discount_rate:
+            type: float
+            nullable: false
+    lifecycleCallbacks: {  }

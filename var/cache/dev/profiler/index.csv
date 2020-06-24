@@ -1,0 +1,12 @@
+7649ad,127.0.0.1,GET,http://127.0.0.1:8000/admin_directory/,1592977207,,200
+ec8059,127.0.0.1,GET,http://127.0.0.1:8000/admin_directory/sale_chart,1592977211,,200
+300133,127.0.0.1,GET,http://127.0.0.1:8000/admin_directory/customer/new,1592977212,,200
+fa00e2,127.0.0.1,GET,http://127.0.0.1:8000/block/search_product,1592977219,a65209,200
+719a9e,127.0.0.1,GET,http://127.0.0.1:8000/block/search_product,1592977219,a65209,200
+a65209,127.0.0.1,GET,http://127.0.0.1:8000/entry,1592977220,,200
+da2be8,127.0.0.1,GET,http://127.0.0.1:8000/block/search_product,1592977221,9ba71a,200
+3dee13,127.0.0.1,GET,http://127.0.0.1:8000/block/search_product,1592977221,9ba71a,200
+9ba71a,127.0.0.1,GET,http://127.0.0.1:8000/entry,1592977221,,200
+00b7cb,127.0.0.1,GET,http://127.0.0.1:8000/block/search_product,1592977222,609d87,200
+7ed1dd,127.0.0.1,GET,http://127.0.0.1:8000/block/search_product,1592977222,609d87,200
+609d87,127.0.0.1,GET,http://127.0.0.1:8000/entry,1592977222,,200
