@@ -3763,6 +3763,7 @@
     </service>
     <service id="Plugin\Sample\Event" class="Plugin\Sample\Event" public="false" autowire="true" autoconfigure="true">
       <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="Plugin\Sample\Repository\CustomerRankRepository"/>
     </service>
     <service id="Plugin\Sample\Form\Extension\CustomerTypeExtension" class="Plugin\Sample\Form\Extension\CustomerTypeExtension" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type_extension" extended_type="Eccube\Form\Type\Admin\CustomerType"/>
@@ -6231,6 +6232,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>Customer/edit.twig</argument>
+        <argument type="collection">
+          <argument type="service" id="Plugin\Sample\Event"/>
+          <argument>CustomerEditTwig</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="response_listener"/>
@@ -6400,14 +6409,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -7022,7 +7023,7 @@
       <argument type="service" id="service_locator.nja5ter"/>
       <argument type="iterator">
         <argument key="security.firewall.map.context.dev" type="service" id="security.request_matcher.zfhj2lw"/>
-        <argument key="security.firewall.map.context.admin" type="service" id="security.request_matcher.mz4ks5n"/>
+        <argument key="security.firewall.map.context.admin" type="service" id="security.request_matcher.klfzksd"/>
         <argument key="security.firewall.map.context.customer" type="service" id="security.request_matcher.00qf1z7"/>
       </argument>
     </service>
@@ -7114,14 +7115,14 @@
     </service>
     <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false">
       <call method="add">
-        <argument type="service" id="security.request_matcher.np0vfn."/>
+        <argument type="service" id="security.request_matcher.gzw_ubh"/>
         <argument type="collection">
           <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
         </argument>
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id="security.request_matcher.cpxd.9j"/>
+        <argument type="service" id="security.request_matcher.q2kdhta"/>
         <argument type="collection">
           <argument>ROLE_ADMIN</argument>
         </argument>
@@ -7488,7 +7489,7 @@
     <service id="security.firewall.map.config.admin" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
       <argument>admin</argument>
       <argument>security.user_checker</argument>
-      <argument>security.request_matcher.mz4ks5n</argument>
+      <argument>security.request_matcher.klfzksd</argument>
       <argument>true</argument>
       <argument>false</argument>
       <argument>Eccube\Security\Core\User\MemberProvider</argument>
@@ -7502,7 +7503,7 @@
       </argument>
       <argument>null</argument>
     </service>
-    <service id="security.request_matcher.mz4ks5n" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+    <service id="security.request_matcher.klfzksd" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/%env(ECCUBE_ADMIN_ROUTE)%/</argument>
     </service>
     <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
@@ -7817,10 +7818,10 @@
         <argument key="security.firewall.map.context.dev" type="service" id="security.firewall.map.context.dev"/>
       </argument>
     </service>
-    <service id="security.request_matcher.np0vfn." class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+    <service id="security.request_matcher.gzw_ubh" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/%env(ECCUBE_ADMIN_ROUTE)%/login</argument>
     </service>
-    <service id="security.request_matcher.cpxd.9j" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+    <service id="security.request_matcher.q2kdhta" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/%env(ECCUBE_ADMIN_ROUTE)%/</argument>
     </service>
     <service id="security.request_matcher.7swfsnm" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">

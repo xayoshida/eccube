@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Plugin\Sample\Form\Type\Admin\CustomerRankType;
 
 /**
  * Class Extension
@@ -18,7 +19,8 @@ class EntryTypeExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rank', ChoiceType::class, [
+            ->add('rank', CustomerRankType::class
+                /*,[
                 'label' => 'ランク',
                 'required' => true,
                 'multiple' => false,
@@ -29,7 +31,8 @@ class EntryTypeExtension extends AbstractTypeExtension
                'choices' => [
                     "通常会員" => 0, "特別会員" => 1,
                 ]
-            ]);
+            ]*/
+                );
     }
 
     /**

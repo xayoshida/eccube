@@ -5,7 +5,8 @@ namespace Plugin\Sample\Form\Extension;
 use Eccube\Form\Type\Admin\CustomerType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Plugin\Sample\Form\Type\Admin\CustomerRankType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
  * Class Extension
@@ -17,7 +18,8 @@ class CustomerTypeExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
        $builder
-            ->add('rank', ChoiceType::class, [
+            ->add('rank', CustomerRankType::class
+                /*, [
                 'label' => 'ランク',
                 'required' => true,
                 'multiple' => false,
@@ -27,8 +29,9 @@ class CustomerTypeExtension extends AbstractTypeExtension
                 ],
                 'choices' => [
                     "通常会員" => 1, "特別会員" => 2,
-                ]
-            ]);
+                ]*/
+            //]
+    );
     }
 
     /**
